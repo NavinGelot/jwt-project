@@ -1,0 +1,5 @@
+rootProject.name = 'spring-security'
+
+include 'basic-authorization'
+include 'basic-jwt'
+

@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.secureme'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Support security by default Basic Authentication with single User
+	// EXAMPLE: curl --location 'http://localhost:8080/api/employee' --header 'Authorization: Basic dXNlcjo4MzZlOThhYi1kODUwLTRiYWUtOTdkMC0xNTQ3NzE2NDFiZGU=' --header 'Cookie: JSESSIONID=340C4BAEC7E4C08A672FE71C91F5EB1A'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
